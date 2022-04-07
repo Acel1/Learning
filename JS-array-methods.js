@@ -25,48 +25,59 @@ let fifteen = inventors.filter(function (inventor) {
 
 console.table(fifteen);
 
-// MAP
+//----------MAP----------//
 //Return selected elements, here first and last name
-let fullNames = inventors.map((inventor) => `${inventor.first} ${inventor.last}`);
 
+let fullNames = inventors.map((inventor) => `${inventor.first} ${inventor.last}`);
 console.table(fullNames);
 
-// SORT
-//Return inventors date birth in descending order
-let order = inventors.sort((a, b) => (a.year < b.year ? 1 : -1));
+let numbers = [1, 3, 4, 8, 9, 12];
+let difference = numbers.map((current, index, array) => current - array[index - 1]).slice(1);
+console.log(difference); //output: [2,1,4,1,3]
 
+//----------SORT----------//
+//Return inventors date birth in descending order
+
+let order = inventors.sort((a, b) => (a.year < b.year ? 1 : -1));
 console.table(order);
 
-// REDUCE
+const points = [40, 100, 1, 5, 25, 10];
+points.sort((a, b) => a - b);
+console.log(points); //output: [1,5,10,25,40,100]
+
+//----------REDUCE----------//
 //Return reducing element of the whole elements selected
+
 let total = inventors.reduce((total, inventor) => {
   return total + (inventor.passed - inventor.year);
 }, 0);
-
 console.log(total);
 
-// FOR EACH
+//----------FOR EACH----------//
 // Return selected element
+
 inventors.forEach((inventor) => {
   console.log(inventor.year);
 });
 
-// FIND
+//----------FIND----------//
 // Return element(s) matching instrtuction(s)
+
 let marie = inventors.find((inventor) => {
   return inventor.first === "Marie";
 });
 console.log(marie);
 
-// SOME
+//----------SOME----------//
 // Return true/false if element(s) matchs or not instruction(s)
 
 let isThereXavier = inventors.some((inventor) => {
   return inventor.first === "Xavier";
 });
+7;
 console.log(isThereXavier);
 
-// EVERY
+//----------EVERY----------//
 // Return true/false if EVERY elements match or not instruction(s)
 
 let allDead = inventors.every((inventor) => {
@@ -82,11 +93,13 @@ function youSure() {
   });
   console.log(allDead);
 }
-youSure();
+console.log(youSure); //output: false
 
-// INCLUDES
+//----------INCLUDES----------//
 //Return true/false if array contains specified element
+
 let numberArray = [1, 2, 5, 3, 4, 6];
+
 let isIncludes = numberArray.includes(2);
 
 console.log(isIncludes);
